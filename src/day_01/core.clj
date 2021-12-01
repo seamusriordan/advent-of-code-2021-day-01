@@ -1,4 +1,6 @@
-(ns day-01.core)
+(ns day-01.core
+  (:require [clojure.java.io :as io]
+            [clojure.string :as str]))
 
 (defn count-increases
   [depths]
@@ -14,3 +16,9 @@
       )
     )
   )
+
+(defn -main
+  [& _]
+  (let [input-strings (str/split-lines (slurp (io/resource "input.txt")))
+        input-data (map #(Integer/parseInt %) input-strings)]
+    (println (count-increases input-data))))
