@@ -2,12 +2,17 @@
   (:require [clojure.java.io :as io]
             [clojure.string :as str]))
 
+(defn three-window
+  [depths]
+  (apply + (take 3 depths))
+  )
+
 (defn count-increases
   [depths]
   (loop [depths depths increases 0]
-    (let [current-depth (first depths)
+    (let [current-depth (three-window depths)
           remaining-depths (rest depths)
-          next-depth (first remaining-depths)]
+          next-depth (three-window remaining-depths)]
       (if (empty? remaining-depths)
         increases
         (if (> next-depth current-depth)

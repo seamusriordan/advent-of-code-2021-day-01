@@ -11,3 +11,8 @@
 (deftest empty-list-is-0
   (testing "Empty list gives 0"
     (is (= 0 (count-increases [])))))
+
+
+(deftest three-window-with-5-inputs
+  (testing "Sliding window with 5 inputs"
+    (is (= 5 (count-increases [607 618 618 617 647 716 769 792])))))
